@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import RBNode from './components/rb-node/RBNode';
+import TreeModel from './domain/TreeModel';
 
 function App() {
+
+  const [value, setValue] = useState();
+  const [tree] = useState(new TreeModel());
+
+  const insertValue = () => {
+    tree.insert(+value);
+    setValue('');
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Arbol rojo negro</h1>
+      <input value={value} onChange={({target: {value}}) => {
+        setValue(value);
+      }} />
+      <button onClick={insertValue}>Insert</button>
+      <hr/>
+      <div>
+        <RBNode node={tree.root} />
+      </div>
     </div>
   );
 }
