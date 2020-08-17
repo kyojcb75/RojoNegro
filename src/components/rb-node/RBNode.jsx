@@ -46,9 +46,9 @@ const nodeStyles = {
   horizontalArrow: {
     position: 'absolute',
     background: 'black',
-    width: '60px',
+    width: '39px',
     height: '2px',
-    top: '50%',
+    top: '100%',
   },
 };
 
@@ -85,6 +85,7 @@ const RBNode = ({ node }) => {
   return (
     <div style={nodeStyles.treeWrapper}>
       <div style={nodeStyles.nodeWrapper}>
+        {(left || right) && <div style={nodeStyles.horizontalArrow}></div>}
         <div style={{
           background: color === COLORS.RED ? '#F00' : '#000',
           color: '#fff',
