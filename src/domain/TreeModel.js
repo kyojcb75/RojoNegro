@@ -53,6 +53,8 @@ class TreeModel {
 
     rebalanceNode(node) {
 
+
+        // Mientras no sea la raiz y el padre del nodo a rebalancear sea rojo
         while(node.parent !== null && node.parent.color === COLORS.RED){
             let auxNode = null;
             if(node.parent ===  node.parent.parent.left){
