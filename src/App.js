@@ -3,9 +3,13 @@ import './App.css';
 import RBNode from './components/rb-node/RBNode';
 import TreeModel from './domain/TreeModel';
 
+const treeStyles = {
+  display: 'flex',
+};
+
 function App() {
 
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
   const [tree] = useState(new TreeModel());
 
   const insertValue = () => {
@@ -21,7 +25,7 @@ function App() {
       }} />
       <button onClick={insertValue}>Insert</button>
       <hr/>
-      <div>
+      <div style={treeStyles}>
         <RBNode node={tree.root} />
       </div>
     </div>
